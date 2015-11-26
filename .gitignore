@@ -1,0 +1,9 @@
+*.pyc
+*.idea/
+*.log
+*.ipynb*
+*.egg*
+
+.dynamic_commands.p
+config.yaml
+commands.yaml
