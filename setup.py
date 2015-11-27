@@ -8,6 +8,7 @@ setup(name='bcbbot',
       author_email='ben@benw.xyz',
       install_requires=[
           'requests',
-          'pyyaml'
+          'pyyaml',
+          'phue',
       ]
       )
