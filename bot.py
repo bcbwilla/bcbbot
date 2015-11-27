@@ -67,8 +67,6 @@ class BcbBot(object):
         self.commands = {}
         # direct irc connection to chat
         self.irc = IRC()
-        # configuration for the command objects
-        self.command_config = self.load_command_config()
         self.load_commands()
         # users in chat
         self.chatters = None
@@ -209,19 +207,9 @@ class BcbBot(object):
         for m in class_members:
             if issubclass(m[1], commands.CommandBase):
                 name = m[0].lower()
-                config = self.command_config.get(name, {})
-                self.commands[name] = m[1](self, **config)
+                self.commands[name] = m[1](self)
 
         logging.info('Loaded commands %s' % str(self.commands.keys()))
-
-    def load_command_config(self):
-        """ load command configurations """
-        try:
-            with open('commands.yaml', 'r') as fh:
-                return yaml.load(fh)
-        except IOError:
-            return {}
-
 
 
 if __name__ == '__main__':

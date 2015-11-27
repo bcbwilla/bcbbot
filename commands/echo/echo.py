@@ -1,4 +1,4 @@
-from command_base import CommandBase
+from commands import CommandBase
 
 class Echo(CommandBase):
     """ repeats the argument in chat if executed by a mod """
